@@ -1,13 +1,14 @@
 package com.example.betterfuture.data
 
 data class TabData(
-    val title: String
+    val title: String,
+    val unreadCount: Int?
 )
 
 val tabs = listOf(
-    TabData(Tabs.CHATS.value),
-    TabData(Tabs.STATUS.value),
-    TabData(Tabs.CALLS.value)
+    TabData(Tabs.CHATS.value, 5),
+    TabData(Tabs.STATUS.value, null),
+    TabData(Tabs.CALLS.value, 24)
 )
 
 enum class Tabs(val value: String){
