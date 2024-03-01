@@ -17,17 +17,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.betterfuture.R
+import com.example.betterfuture.data.users
 
 @Composable
 fun ChatScreen() {
-    val clients = listOf("Norah Seddaoui", "Farez Hoseni", "Djamila Seddaoui", "Imane Azeddine")
+
     LazyColumn() {
-        for(client in clients){
+        for(user in users){
             item {
-                ContactItem(name = client)
+                ContactItem(name = user.name)
                 Divider(color = MaterialTheme.colorScheme.primary, thickness = 2.dp)
             }
         }
@@ -37,7 +40,9 @@ fun ChatScreen() {
 @Composable
 fun ContactItem(name: String){
     Row (
-        modifier = Modifier.padding(5.dp),
+        modifier = Modifier
+            .background(MaterialTheme.colorScheme.background)
+            .padding(5.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
@@ -52,7 +57,13 @@ fun ContactItem(name: String){
 
         )
         Spacer(modifier = Modifier.size(4.dp))
-        Text(text = name)
+        Text(
+            text = name,
+            style = TextStyle(
+                color = MaterialTheme.colorScheme.onBackground,
+                fontWeight = FontWeight.Bold
+            )
+        )
     }
 }
 

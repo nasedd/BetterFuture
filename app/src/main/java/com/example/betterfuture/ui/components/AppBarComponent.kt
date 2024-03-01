@@ -28,7 +28,7 @@ fun AppBarComponent(){
         modifier = Modifier
             .fillMaxWidth()
             .height(60.dp)
-            .background(MaterialTheme.colorScheme.primary)
+            .background(MaterialTheme.colorScheme.secondary)
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -45,18 +45,22 @@ fun AppBarComponent(){
         )
 
         Spacer(modifier = Modifier.weight(1f))
-        IconComponent(R.drawable.ic_camera)
+        IconAppBar(R.drawable.ic_camera)
         Spacer(modifier = Modifier.size(20.dp))
-        IconComponent(R.drawable.ic_search)
+        IconAppBar(R.drawable.ic_search)
         Spacer(modifier = Modifier.size(20.dp))
-        IconComponent(R.drawable.ic_menu)
+        IconAppBar(R.drawable.ic_menu)
 
     }
 }
 
 @Composable
-fun IconComponent(drawableId: Int){
+fun IconAppBar(
+    drawableId: Int,
+    modifier: Modifier = Modifier
+){
     Icon(
+        modifier = modifier,
         painter = painterResource(id = drawableId),
         contentDescription = "",
         tint = MaterialTheme.colorScheme.tertiary

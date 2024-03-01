@@ -31,16 +31,12 @@ import com.example.betterfuture.data.TabData
 import com.example.betterfuture.data.tabs
 
 @Composable
-fun TabsComponent() {
-
-    var selectedIndex by remember {
-        mutableStateOf(0)
-    }
+fun TabsComponent(selectedIndex: Int, onClickTab: (Int) -> Unit) {
 
     TabRow(
         selectedTabIndex = selectedIndex,
         modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.primary,
+        containerColor = MaterialTheme.colorScheme.secondary,
         contentColor = MaterialTheme.colorScheme.tertiary,
         indicator = {tabPosition ->
             TabRowDefaults.Indicator(
@@ -55,10 +51,13 @@ fun TabsComponent() {
             Tab(
                 selected = index == selectedIndex,
                 onClick = {
-                    selectedIndex = index
+                    onClickTab(index)
                 },
                 text = {
-                    TabContent(tabData = tabData)
+                    TabContent(
+                        tabData = tabData,
+                        isSelected = index == selectedIndex
+                    )
                 }
             )
         }
@@ -66,31 +65,32 @@ fun TabsComponent() {
 }
 
 @Composable
-fun TabContent(tabData: TabData){
+fun TabContent(tabData: TabData, isSelected: Boolean){
     if(tabData.unreadCount == null){
-        TabTitle(title = tabData.title)
+        TabTitle(title = tabData.title, isSelected)
     }else {
-        TabWithUnreadCount(tabData)
+        TabWithUnreadCount(tabData, isSelected)
     }
 }
 
 @Composable
-fun TabTitle(title: String){
+fun TabTitle(title: String, isSelected: Boolean){
     Text(
         text = title,
         style = TextStyle(
-            fontSize = 16.sp
+            fontSize = 16.sp,
+            color = if (isSelected) MaterialTheme.colorScheme.outline else MaterialTheme.colorScheme.tertiary
         )
     )
 }
 
 @Composable
-fun TabWithUnreadCount(tabData: TabData){
+fun TabWithUnreadCount(tabData: TabData, isSelected: Boolean){
     Row (
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ){
-        TabTitle(tabData.title)
+        TabTitle(tabData.title, isSelected)
 
         tabData.unreadCount?.let {
             Text(
@@ -99,9 +99,10 @@ fun TabWithUnreadCount(tabData: TabData){
                     .padding(6.dp)
                     .size(16.dp)
                     .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.tertiary),
+                    .background(if (isSelected) MaterialTheme.colorScheme.outline else MaterialTheme.colorScheme.tertiary
+                    ),
                 style = TextStyle(
-                    color = MaterialTheme.colorScheme.primary,
+                    color = MaterialTheme.colorScheme.secondary,
                     textAlign = TextAlign.Center,
                     fontSize = 12.sp
                 )
@@ -113,5 +114,5 @@ fun TabWithUnreadCount(tabData: TabData){
 @Preview
 @Composable
 fun TabsComponentPreview() {
-    TabsComponent()
+    TabsComponent(0) {}
 }

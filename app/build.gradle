@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.example.betterfuture'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.betterfuture"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -65,4 +65,7 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
     implementation 'com.google.accompanist:accompanist-systemuicontroller:0.28.0'
+
+    //for more icon
+    implementation 'androidx.compose.material:material-icons-extended-android:1.6.2'
 }

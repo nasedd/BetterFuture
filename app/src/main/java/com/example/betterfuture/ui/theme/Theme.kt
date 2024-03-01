@@ -19,17 +19,23 @@ import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Gray,
-    secondary = LightGray,
-    background = LightGray,
-    tertiary = White
+    primary = Ivory,
+    secondary = Gray,
+    tertiary = LightGray,
+    background = DarkGray,
+    onBackground = Ivory,
+    outline = FlashyGreen,
+    onPrimary = Gray
+
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Green,
-    secondary = LightGreen,
-    background = White,
-    tertiary = White
+    secondary = Green,
+    background = Ivory,
+    onBackground = Black,
+    tertiary = LightGray,
+    outline = White
 
 )
 
@@ -54,7 +60,7 @@ fun BetterFutureTheme(
         }
 
         val navigationBarColor = if(isSystemInDarkTheme()){
-            LightGray
+            DarkGray
         }else {
             White
         }
