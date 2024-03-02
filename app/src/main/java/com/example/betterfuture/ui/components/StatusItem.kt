@@ -64,24 +64,22 @@ fun StatusItem(name: String){
             Row (verticalAlignment = Alignment.CenterVertically){
                 IconComponent(R.drawable.ic_breath, modifier = Modifier.padding(end = 4.dp))
                 TextComp("Matin")
-                Checkbox(checked = true, onCheckedChange = {}, modifier = Modifier.padding(end = 16.dp, start = 0.dp))
-
+                IconComponent(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 4.dp))
+                
                 IconComponent(R.drawable.ic_breath, modifier = Modifier.padding(end = 4.dp))
                 TextComp("Midi")
-                Checkbox(checked = false, onCheckedChange = {}, modifier = Modifier.padding(start = 0.dp))
+                IconComponent(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 4.dp))
 
                 IconComponent(R.drawable.ic_breath, modifier = Modifier.padding(end = 4.dp))
                 TextComp("Soir")
-                Checkbox(checked = false, onCheckedChange = {}, modifier = Modifier.padding(start = 0.dp))
-            }
+                IconComponent(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 4.dp))            }
 
             Row (verticalAlignment = Alignment.CenterVertically){
                 IconComponent(R.drawable.ic_sport, modifier = Modifier.padding(end = 4.dp))
-                Checkbox(checked = true, onCheckedChange = {}, modifier = Modifier.padding(end = 16.dp, start = 4.dp))
+                IconComponent(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 4.dp))
 
                 IconComponent(R.drawable.ic_stretching, modifier = Modifier.padding(end = 4.dp))
-                Checkbox(checked = false, onCheckedChange = {}, modifier = Modifier.padding(end = 16.dp, start = 4.dp))
-            }
+                IconComponent(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 4.dp))            }
 
 
         }
