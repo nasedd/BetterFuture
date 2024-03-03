@@ -1,6 +1,7 @@
 package com.example.betterfuture.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -33,10 +34,16 @@ import com.example.betterfuture.data.tabs
 @Composable
 fun TabsComponent(selectedIndex: Int, onClickTab: (Int) -> Unit) {
 
+    val tabColor = if(isSystemInDarkTheme()){
+        MaterialTheme.colorScheme.secondary
+    } else {
+        MaterialTheme.colorScheme.primary
+    }
+
     TabRow(
         selectedTabIndex = selectedIndex,
         modifier = Modifier.fillMaxWidth(),
-        containerColor = MaterialTheme.colorScheme.secondary,
+        containerColor = tabColor,
         contentColor = MaterialTheme.colorScheme.tertiary,
         indicator = {tabPosition ->
             TabRowDefaults.Indicator(

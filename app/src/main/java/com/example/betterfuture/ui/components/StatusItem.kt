@@ -1,13 +1,16 @@
 package com.example.betterfuture.ui.components
 
+import androidx.compose.material3.Icon
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -34,52 +37,60 @@ import com.example.betterfuture.R
 fun StatusItem(name: String){
     Row (
         modifier = Modifier
+            .fillMaxWidth()
+            .height(100.dp)
             .background(MaterialTheme.colorScheme.background)
             .padding(4.dp)
     ) {
-        Column(Modifier.width(60.dp)) {
+        Column(
+            modifier = Modifier.width(70.dp).padding(end = 6.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_person),
                 contentDescription = "",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
+                    .size(60.dp)
                     .padding(4.dp)
                     .clip(CircleShape)
-                    .fillMaxWidth()
                     .background(color = MaterialTheme.colorScheme.primary)
 
             )
             TextComp(
                 text = "Imane Azeddine",
-                modifier = Modifier.width(IntrinsicSize.Max)
+                modifier = Modifier
             )
         }
 
         //Spacer(modifier = Modifier.size(4.dp))
-        Column {
-            Row {
+        Column (
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.SpaceAround
+        ){
+            Row (verticalAlignment = Alignment.CenterVertically){
                 LinearGauge(maxValue = 100f, currentValue = 30f, gaugeHeight = 10.dp, modifier = Modifier.padding(end = 8.dp))
                 TextComp("4300 pas")
             }
             Row (verticalAlignment = Alignment.CenterVertically){
                 IconComponent(R.drawable.ic_breath, modifier = Modifier.padding(end = 4.dp))
                 TextComp("Matin")
-                IconComponent(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 4.dp))
-                
-                IconComponent(R.drawable.ic_breath, modifier = Modifier.padding(end = 4.dp))
-                TextComp("Midi")
-                IconComponent(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 4.dp))
+                IconTheme(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 6.dp))
 
-                IconComponent(R.drawable.ic_breath, modifier = Modifier.padding(end = 4.dp))
+                TextComp("Midi")
+                IconTheme(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 6.dp))
+
+
                 TextComp("Soir")
-                IconComponent(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 4.dp))            }
+                IconTheme(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 4.dp))
+            }
 
             Row (verticalAlignment = Alignment.CenterVertically){
-                IconComponent(R.drawable.ic_sport, modifier = Modifier.padding(end = 4.dp))
-                IconComponent(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 4.dp))
+                IconComponent(R.drawable.ic_sport, modifier = Modifier.padding(end = 2.dp))
+                IconTheme(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 6.dp))
 
-                IconComponent(R.drawable.ic_stretching, modifier = Modifier.padding(end = 4.dp))
-                IconComponent(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 4.dp))            }
+                IconComponent(R.drawable.ic_stretching, modifier = Modifier.padding(end = 2.dp))
+                IconTheme(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 6.dp))            }
 
 
         }

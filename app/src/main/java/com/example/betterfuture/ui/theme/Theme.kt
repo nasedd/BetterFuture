@@ -22,20 +22,24 @@ private val DarkColorScheme = darkColorScheme(
     primary = Ivory,
     secondary = Gray,
     tertiary = LightGray,
+    onSecondary = LightGray,
     background = DarkGray,
     onBackground = Ivory,
     outline = FlashyGreen,
-    onPrimary = Gray
+    onPrimary = Gray,
+    onSurfaceVariant = Ivory
 
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Green,
-    secondary = Green,
+    secondary = LightGreen,
+    tertiary = Ivory,
+    onSecondary = Ivory,
     background = Ivory,
     onBackground = Black,
-    tertiary = LightGray,
-    outline = White
+    outline = White,
+    onSurfaceVariant = Ivory
 
 )
 

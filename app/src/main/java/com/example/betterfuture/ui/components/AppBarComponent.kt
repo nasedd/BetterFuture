@@ -1,6 +1,7 @@
 package com.example.betterfuture.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,11 +25,16 @@ import com.example.betterfuture.R
 
 @Composable
 fun AppBarComponent(){
+    val appBarColor = if(isSystemInDarkTheme()){
+        MaterialTheme.colorScheme.secondary
+    } else {
+        MaterialTheme.colorScheme.primary
+    }
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(60.dp)
-            .background(MaterialTheme.colorScheme.secondary)
+            .background(appBarColor)
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -38,7 +44,7 @@ fun AppBarComponent(){
             style = TextStyle(
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.tertiary
+                color = MaterialTheme.colorScheme.onSurfaceVariant
 
 
             )

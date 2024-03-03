@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -27,7 +28,7 @@ import com.example.betterfuture.data.users
 @Composable
 fun ChatScreen() {
 
-    LazyColumn() {
+    LazyColumn(Modifier.fillMaxSize()) {
         for(user in users){
             item {
                 ContactItem(name = user.name)

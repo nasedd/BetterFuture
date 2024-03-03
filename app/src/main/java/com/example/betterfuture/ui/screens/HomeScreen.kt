@@ -1,11 +1,13 @@
 package com.example.betterfuture.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -39,7 +41,7 @@ fun HomeScreen(){
         selectedIndex = pagerState.targetPage
     }
 
-    Column {
+    Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
         AppBarComponent()
         TabsComponent(selectedIndex){ index ->
             selectedIndex = index
