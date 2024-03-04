@@ -40,7 +40,7 @@ fun AppBarComponent(){
     ) {
 
         Text(
-            text = stringResource(id = R.string.watsapp_title),
+            text = stringResource(id = R.string.app_name),
             style = TextStyle(
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
