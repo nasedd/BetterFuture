@@ -1,6 +1,5 @@
 package com.example.betterfuture.ui.screens
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,10 +21,12 @@ import com.example.betterfuture.R
 import com.example.betterfuture.ui.components.IconComponent
 import com.example.betterfuture.ui.components.IconTheme
 import com.example.betterfuture.ui.components.LinearGauge
+import com.example.betterfuture.ui.components.MediaPlayer
 import com.example.betterfuture.ui.components.TextComp
 
 @Composable
 fun PersoScreen() {
+
     Column (
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -35,6 +36,11 @@ fun PersoScreen() {
         Spacer(modifier = Modifier.size(20.dp))
 
         TextTitlePerso(text = "Respiration")
+        Spacer(modifier = Modifier.size(20.dp))
+
+        MediaPlayer()
+
+        Spacer(modifier = Modifier.size(20.dp))
 
         Row (verticalAlignment = Alignment.CenterVertically){
             IconComponent(R.drawable.ic_breath, modifier = Modifier.padding(end = 4.dp))

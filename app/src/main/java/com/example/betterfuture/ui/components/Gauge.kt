@@ -26,7 +26,7 @@ fun LinearGauge(
     modifier: Modifier = Modifier
 ) {
     // Couleur de l'arrière-plan de la jauge
-    val backgroundColor = MaterialTheme.colorScheme.tertiary
+    val backgroundColor = MaterialTheme.colorScheme.secondary
 
     // Couleur de la jauge
     val gaugeColor = MaterialTheme.colorScheme.primary
