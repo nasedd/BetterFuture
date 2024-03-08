@@ -1,13 +1,10 @@
 package com.example.betterfuture.ui.components
 
-import androidx.compose.material3.Icon
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -15,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -75,22 +71,22 @@ fun StatusItem(name: String){
             Row (verticalAlignment = Alignment.CenterVertically){
                 IconComponent(R.drawable.ic_breath, modifier = Modifier.padding(end = 4.dp))
                 TextComp("Matin")
-                IconTheme(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 6.dp))
+                IconImage(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 6.dp))
 
                 TextComp("Midi")
-                IconTheme(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 6.dp))
+                IconImage(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 6.dp))
 
 
                 TextComp("Soir")
-                IconTheme(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 4.dp))
+                IconImage(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 4.dp))
             }
 
             Row (verticalAlignment = Alignment.CenterVertically){
                 IconComponent(R.drawable.ic_sport, modifier = Modifier.padding(end = 2.dp))
-                IconTheme(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 6.dp))
+                IconImage(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 6.dp))
 
                 IconComponent(R.drawable.ic_stretching, modifier = Modifier.padding(end = 2.dp))
-                IconTheme(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 6.dp))            }
+                IconImage(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 6.dp))            }
 
 
         }

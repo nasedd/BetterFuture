@@ -21,7 +21,7 @@ fun IconComponent(
 }
 
 @Composable
-fun IconTheme(
+fun IconImage(
     drawableId: Int,
     modifier: Modifier = Modifier,
 ){
