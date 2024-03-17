@@ -82,7 +82,7 @@ fun StatusItem(name: String){
             }
 
             Row (verticalAlignment = Alignment.CenterVertically){
-                IconComponent(R.drawable.ic_sport, modifier = Modifier.padding(end = 2.dp))
+                IconComponent(R.drawable.ic_running, modifier = Modifier.padding(end = 2.dp))
                 IconImage(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 6.dp))
 
                 IconComponent(R.drawable.ic_stretching, modifier = Modifier.padding(end = 2.dp))

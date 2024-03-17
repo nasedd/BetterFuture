@@ -27,7 +27,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.betterfuture.ExoPlayerSingleton
+import com.example.betterfuture.ExoPlayerSingleton.player
 import com.example.betterfuture.R
 import kotlinx.coroutines.delay
 
@@ -35,7 +35,7 @@ import kotlinx.coroutines.delay
 val playerWidth = 250.dp
 
 @Composable
-fun MediaPlayer(){
+fun MediaPlayer() {
     val isPlaying = remember {
         mutableStateOf(false)
     }
@@ -52,27 +52,27 @@ fun MediaPlayer(){
         mutableLongStateOf(0)
     }
 
-    ExoPlayerSingleton.player?.let {
-        LaunchedEffect(key1 = it.currentPosition, key2 = it.isPlaying) {
-            delay(1000)
-            currentPosition.longValue = it.currentPosition
-        }
 
-        LaunchedEffect(currentPosition.longValue) {
-            sliderPosition.longValue = currentPosition.longValue
-        }
+    LaunchedEffect(key1 = player.currentPosition, key2 = player.isPlaying) {
+        delay(1000)
+        currentPosition.longValue = player.currentPosition
+    }
 
-        LaunchedEffect(it.duration) {
-            if (it.duration > 0) {
-                totalDuration.longValue = it.duration
-            }
+    LaunchedEffect(currentPosition.longValue) {
+        sliderPosition.longValue = currentPosition.longValue
+    }
+
+    LaunchedEffect(player.duration) {
+        if (player.duration > 0) {
+            totalDuration.longValue = player.duration
         }
     }
 
-    Column (horizontalAlignment = Alignment.End){
-        Row (
+
+    Column(horizontalAlignment = Alignment.End) {
+        Row(
             verticalAlignment = Alignment.CenterVertically
-        ){
+        ) {
             IconComponent(
                 drawableId = if (isPlaying.value) R.drawable.ic_pause else R.drawable.ic_play,
                 modifier = Modifier
@@ -80,12 +80,12 @@ fun MediaPlayer(){
                     .padding(2.dp)
                     .clickable {
                         if (isPlaying.value) {
-                            ExoPlayerSingleton.player?.pause()
+                            player.pause()
                         } else {
-                            ExoPlayerSingleton.player?.play()
+                            player.play()
                         }
-                        isPlaying.value = ExoPlayerSingleton.player?.isPlaying ?: true
-                    }            )
+                        isPlaying.value = player.isPlaying
+                    })
             Spacer(modifier = Modifier.size(4.dp))
 
             TrackSlider(
@@ -95,7 +95,7 @@ fun MediaPlayer(){
                 },
                 onValueChangeFinished = {
                     currentPosition.longValue = sliderPosition.longValue
-                    ExoPlayerSingleton.player?.seekTo(sliderPosition.longValue)
+                    player.seekTo(sliderPosition.longValue)
                 },
                 songDuration = totalDuration.longValue.toFloat(),
                 modifier = Modifier

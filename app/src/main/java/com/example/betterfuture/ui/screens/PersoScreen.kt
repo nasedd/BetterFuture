@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -21,10 +22,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.betterfuture.R
+import com.example.betterfuture.data.sportList
+import com.example.betterfuture.data.users
 import com.example.betterfuture.ui.components.IconComponent
 import com.example.betterfuture.ui.components.IconImage
 import com.example.betterfuture.ui.components.LinearGauge
 import com.example.betterfuture.ui.components.MediaPlayer
+import com.example.betterfuture.ui.components.SportItem
+import com.example.betterfuture.ui.components.StatusItem
 import com.example.betterfuture.ui.components.TextComp
 
 @Composable
@@ -91,8 +96,16 @@ fun PersoScreen() {
         TextTitlePerso(text = "Sport")
         Spacer(modifier = Modifier.size(20.dp))
 
+        LazyColumn (Modifier.fillMaxSize()){
+            for(sport in sportList){
+                item {
+                    SportItem(sport)
+                }
+            }
+        }
+
         Row (verticalAlignment = Alignment.CenterVertically){
-            IconComponent(R.drawable.ic_sport, modifier = Modifier.padding(end = 2.dp))
+            IconComponent(R.drawable.ic_running, modifier = Modifier.padding(end = 2.dp))
             IconImage(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 6.dp))
 
             IconComponent(R.drawable.ic_stretching, modifier = Modifier.padding(end = 2.dp))
