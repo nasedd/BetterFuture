@@ -6,9 +6,9 @@ data class Sport(
     val name: String,
     val quantity: String = "",
     val drawableId: Int,
-    val morning: Boolean? = null,
-    val midday: Boolean? = null,
-    val evening: Boolean? = null
+    val morning: Boolean = false,
+    val midday: Boolean = false,
+    val evening: Boolean = false
 )
 
 val sportList = listOf(

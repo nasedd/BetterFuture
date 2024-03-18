@@ -71,6 +71,7 @@ fun PersoScreen() {
             horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically
         ){
+
             Row(verticalAlignment = Alignment.CenterVertically){
                 TextComp("Matin", Modifier.padding(end = 4.dp))
                 IconImage(R.drawable.ic_box_checked)
@@ -96,22 +97,13 @@ fun PersoScreen() {
         TextTitlePerso(text = "Sport")
         Spacer(modifier = Modifier.size(20.dp))
 
-        LazyColumn (Modifier.fillMaxSize()){
+        LazyColumn (Modifier.fillMaxSize().padding(start = 30.dp, end = 30.dp)){
             for(sport in sportList){
                 item {
                     SportItem(sport)
                 }
             }
         }
-
-        Row (verticalAlignment = Alignment.CenterVertically){
-            IconComponent(R.drawable.ic_running, modifier = Modifier.padding(end = 2.dp))
-            IconImage(R.drawable.ic_box_checked, modifier = Modifier.padding(end = 6.dp))
-
-            IconComponent(R.drawable.ic_stretching, modifier = Modifier.padding(end = 2.dp))
-            IconImage(R.drawable.ic_box_unchecked, modifier = Modifier.padding(end = 6.dp))            }
-
-
     }
 }
 
